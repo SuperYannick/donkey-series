@@ -1,19 +1,20 @@
 {% extends "base.html.twig" %}
 {% block body %}
-	<!doctype html>
-	<html lang="en">
-		<head>
-			<meta charset="UTF-8">
-			<title>Donkey Series</title>
-		</head>
-		<body>
-			<h1>
-				{{ website }}
-			</h1>
-			<h2>
-				Program number
-				{{ id }}
-			</h2>
-		</body>
-	</html>
+	<h1>
+		{{ website }}
+	</h1>
+	<h2 class="mt-0">
+		{{program.title}}
+	</h2>
+	<div class="media"><img class="align-self-start mr-3" src="{{program.poster}}" alt="{{ program.title }} poster">
+		<div class="media-body">
+			<div>
+				<h4>{{program.category.name}}</h4>
+			</div>
+			<p>{{program.summary}}</p>
+		</div>
+	</div>
+
+	<a href="{{ path('program_index')}} ">Program's list</a>
+	<a href="{{ path('app_home')}} ">Home</a>
 {% endblock %}
