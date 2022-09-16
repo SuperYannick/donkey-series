@@ -1,0 +1,17 @@
+{% extends "base.html.twig" %}
+{% block body %}
+	<h1>
+		{{category.name}}
+
+	</h1>
+	<div>
+		<li>
+			{% for program in programs %}
+				<ul>
+					{{loop.index}}
+					{{program.title}}
+				</ul>
+			{% endfor %}
+		</li>
+	</div>
+{% endblock %}
