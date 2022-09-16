@@ -5,13 +5,22 @@
 
 	</h1>
 	<div>
-		<li>
+		<ul>
 			{% for program in programs %}
-				<ul>
-					{{loop.index}}
-					{{program.title}}
-				</ul>
+
+				<li>
+					<h4>{{program.id}}
+						{{program.title}}
+					</h4>
+					<div>
+						{{program.summary}}
+					</div>
+					<a href="{{ path("program_show", { id: program.id }) }}">More info</a>
+				</li>
+
+			{% else %}
+				{{message}}
 			{% endfor %}
-		</li>
+		</ul>
 	</div>
 {% endblock %}

@@ -24,7 +24,11 @@ class CategoryController extends AbstractController
     public function show(CategoryRepository $categoryRepository, string $categoryName, ProgramRepository $programRepository): Response
     {
         $category = $categoryRepository->findOneBy(['name' => $categoryName]);
-        $programs = $programRepository->findby(['category' => $category]);
+        $programs = $programRepository->findby(
+            ['category' => $category],
+            ['id' => 'DESC'],
+            3
+        );
 
         if (!$category) {
             throw $this->createNotFoundException(
@@ -32,9 +36,13 @@ class CategoryController extends AbstractController
             );
         }
 
+
+
+
         return $this->render('category/show.html.twig', [
             'category' => $category,
-            'programs' => $programs
+            'programs' => $programs,
+            'message' => 'No program in this category'
         ]);
     }
 }

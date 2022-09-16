@@ -13,8 +13,15 @@
 			<h4>
 				{{loop.index}}
 				{{category.name}}
+				<a href="{{ path("category_show", { categoryName: category.name }) }}">Browse</a>
 			</h4>
 
 		{% endfor %}
+	</div>
+	<div>
+		<a href="{{ path ("program_index")}}">Program</a>
+	</div>
+	<div>
+		<a href="{{ path("app_home")}} ">Home</a>
 	</div>
 {% endblock %}
